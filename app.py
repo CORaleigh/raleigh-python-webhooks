@@ -53,20 +53,20 @@ def makeEventWebhookResult(data):
     if features is None:
         speech = "I could not find any events"
         return {
-            "speech": speech,
-            "displayText": speech,
-            # "data": data,
-            "contextOut": [],
-            "source": "city-raleigh-webhook"
+            # "speech": speech,
+            # "displayText": speech,
+            # # "data": data,
+            # "contextOut": [],
+            # "source": "city-raleigh-webhook"
         }
     if len(features) == 0:
         speech = "There are no events scheduled in the next week"
         return {
-            "speech": speech,
-            "displayText": speech,
-            # "data": data,
-            "contextOut": [],
-            "source": "city-raleigh-webhook"
+            # "speech": speech,
+            # "displayText": speech,
+            # # "data": data,
+            # "contextOut": [],
+            # "source": "city-raleigh-webhook"
         }
 
     speech = "The following events are scheduled in the next week. "
@@ -101,20 +101,20 @@ def getGeocodeResult(data, req):
     if candidates is None:
         speech = "I could not find your address"
         return {
-            "speech": speech,
-            "displayText": speech,
-            # "data": data,
-            "contextOut": [],
-            "source": "city-raleigh-webhook"
+            # "speech": speech,
+            # "displayText": speech,
+            # # "data": data,
+            # "contextOut": [],
+            # "source": "city-raleigh-webhook"
         }
     if len(candidates) == 0:
         speech = "I could not find your address"
         return {
-            "speech": speech,
-            "displayText": speech,
-            # "data": data,
-            "contextOut": [],
-            "source": "city-raleigh-webhook"
+            # "speech": speech,
+            # "displayText": speech,
+            # # "data": data,
+            # "contextOut": [],
+            # "source": "city-raleigh-webhook"
         }
     candidate = candidates[0]
     location = candidate.get('location')
@@ -149,22 +149,22 @@ def makeWebhookResult(data, info, req):
     features = data.get('features')
     if features is None:
         speech = "I cannot answer your question, your address may not be serviced"
-        return {
-            "speech": speech,
-            "displayText": speech,
-            # "data": data,
-            "contextOut": [],
-            "source": "city-raleigh-webhook"
-        }
+        # return {
+        #     "speech": speech,
+        #     "displayText": speech,
+        #     # "data": data,
+        #     "contextOut": [],
+        #     "source": "city-raleigh-webhook"
+        # }
     if len(features) == 0:
        speech = "I cannot answer your question, your address may not be serviced"
-        return {
-            "speech": speech,
-            "displayText": speech,
-            # "data": data,
-            "contextOut": [],
-            "source": "city-raleigh-webhook"
-        }
+        # return {
+        #     "speech": speech,
+        #     "displayText": speech,
+        #     # "data": data,
+        #     "contextOut": [],
+        #     "source": "city-raleigh-webhook"
+        # }
 
     feature = features[0]
     attributes = feature.get('attributes')
