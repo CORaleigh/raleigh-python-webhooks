@@ -23,7 +23,7 @@ app = Flask(__name__)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
-
+    return "Test"
     print("Request:")
     print(json.dumps(req, indent=4))
     if req.get('result').get('action') != 'find_events':
@@ -43,7 +43,7 @@ def processEventResult(req):
     if query is None:
         return {}
     url = baseurl + urlencode(query) + "&f=json"
-    
+
     result = urlopen(url).read()
     data = json.loads(result)
     res = makeEventWebhookResult(data)
