@@ -51,9 +51,23 @@ def processEventResult(req):
 def makeEventWebhookResult(data):
     features = data.get('features')
     if features is None:
-        return {}
+        speech = "I could not find any events"
+        return {
+            "speech": speech,
+            "displayText": speech,
+            # "data": data,
+            "contextOut": [],
+            "source": "city-raleigh-webhook"
+        }
     if len(features) == 0:
-        return {}
+        speech = "There are no events scheduled in the next week"
+        return {
+            "speech": speech,
+            "displayText": speech,
+            # "data": data,
+            "contextOut": [],
+            "source": "city-raleigh-webhook"
+        }
 
     speech = "The following events are scheduled in the next week. "
     names = []
@@ -69,7 +83,7 @@ def makeEventWebhookResult(data):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
+        "source": "city-raleigh-webhook"
     }
 
 def processGeocodeRequest(req):
@@ -85,9 +99,23 @@ def processGeocodeRequest(req):
 def getGeocodeResult(data, req):
     candidates = data.get('candidates')
     if candidates is None:
-        return {}
+        speech = "I could not find your address"
+        return {
+            "speech": speech,
+            "displayText": speech,
+            # "data": data,
+            "contextOut": [],
+            "source": "city-raleigh-webhook"
+        }
     if len(candidates) == 0:
-        return {}
+        speech = "I could not find your address"
+        return {
+            "speech": speech,
+            "displayText": speech,
+            # "data": data,
+            "contextOut": [],
+            "source": "city-raleigh-webhook"
+        }
     candidate = candidates[0]
     location = candidate.get('location')
     lon = location.get('x')
@@ -120,9 +148,23 @@ def makeQuery(lon, lat, info):
 def makeWebhookResult(data, info, req):
     features = data.get('features')
     if features is None:
-        return {}
+        speech = "I cannot answer your question, your address may not be serviced"
+        return {
+            "speech": speech,
+            "displayText": speech,
+            # "data": data,
+            "contextOut": [],
+            "source": "city-raleigh-webhook"
+        }
     if len(features) == 0:
-        return {}
+       speech = "I cannot answer your question, your address may not be serviced"
+        return {
+            "speech": speech,
+            "displayText": speech,
+            # "data": data,
+            "contextOut": [],
+            "source": "city-raleigh-webhook"
+        }
 
     feature = features[0]
     attributes = feature.get('attributes')
@@ -147,7 +189,7 @@ def makeWebhookResult(data, info, req):
         "displayText": speech,
         # "data": data,
         "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
+        "source": "city-raleigh-webhook"
     }
 
 def getServiceInfo(req):
