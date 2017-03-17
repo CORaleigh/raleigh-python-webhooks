@@ -43,6 +43,7 @@ def processEventResult(req):
     if query is None:
         return {}
     url = baseurl + urlencode(query) + "&f=json"
+    
     result = urlopen(url).read()
     data = json.loads(result)
     res = makeEventWebhookResult(data)
