@@ -49,6 +49,7 @@ def processEventResult(req):
     return res  
 
 def makeEventWebhookResult(data):
+    return json.dumps(req)
     features = data.get('features')
     if features is None:
         return {}
