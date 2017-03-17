@@ -9,3 +9,12 @@ This service can report what district you are in (CAC, City Council, Police), wh
 
 The service packs the result in the Api.ai webhook-compatible response JSON and returns it to Api.ai.
 
+### Recent Updates
+* when you specify you address for one question, you do not need to repeat it for the next
+  * this was done by creating a context called address, then setting the default value for the street-address parameter to #address.street-address
+  
+## Future Ideas
+* for CAC, return when and where the CAC meetings are
+* return bio information for City Council person
+
+
