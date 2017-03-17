@@ -45,10 +45,10 @@ def processEventResult(req):
 
     result = urlopen(url).read()
     data = json.loads(result)
-    res = makeEventWebhookResult(data)
+    res = makeEventWebhookResult(data, req)
     return res  
 
-def makeEventWebhookResult(data):
+def makeEventWebhookResult(data, req):
     return json.dumps(req)
     features = data.get('features')
     if features is None:
